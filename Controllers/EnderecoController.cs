@@ -4,7 +4,7 @@ using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using FilmesAPI.Models;
 using FilmesAPI.Data;
-using FilmesAPI.Data.Dtos;
+using FilmesAPI.Data.Dtos.Endereco;
 using AutoMapper;
 
 namespace FilmesAPI.Controllers
