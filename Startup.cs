@@ -32,10 +32,12 @@ namespace FilmesAPI
 
             services.AddDbContext<FilmeContext>(
                 opts => opts
+                    .UseLazyLoadingProxies()
                     .UseMySql(
                         Configuration.GetConnectionString("FilmeConnection"), serverVersion,
                         options => options.EnableRetryOnFailure()
                     )
+
             );
 
             services.AddControllers();

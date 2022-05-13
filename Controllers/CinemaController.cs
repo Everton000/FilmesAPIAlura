@@ -23,9 +23,9 @@ namespace FilmesAPI.Controllers
         }
 
         [HttpPost]
-        public IActionResult AdicionaCinema([FromBody] CreateCinemaDto filmeDto)
+        public IActionResult AdicionaCinema([FromBody] CreateCinemaDto cinemaDto)
         {
-            Cinema cinema = _mapper.Map<Cinema>(filmeDto);
+            Cinema cinema = _mapper.Map<Cinema>(cinemaDto);
             _context.Cinemas.Add(cinema);
             _context.SaveChanges();
             return CreatedAtAction(nameof(RecuperaCinemaPorId), new { Id = cinema.Id }, cinema);
@@ -44,16 +44,16 @@ namespace FilmesAPI.Controllers
 
             if (cinema != null)
             {
-                ReadCinemaDto filmeDto = _mapper.Map<ReadCinemaDto>(cinema);
+                ReadCinemaDto cinemaDto = _mapper.Map<ReadCinemaDto>(cinema);
 
-                return Ok(filmeDto);
+                return Ok(cinemaDto);
             }
 
             return NotFound();
         }
 
         [HttpPut("{id}")]
-        public IActionResult AtualizaCinema(int id, [FromBody] UpdateCinemaDto filmeDto)
+        public IActionResult AtualizaCinema(int id, [FromBody] UpdateCinemaDto cinemaDto)
         {
             Cinema cinema = _context.Cinemas.FirstOrDefault(cinema => cinema.Id == id);
 
@@ -62,7 +62,7 @@ namespace FilmesAPI.Controllers
                 return NotFound();
             }
 
-            _mapper.Map(filmeDto, cinema);
+            _mapper.Map(cinemaDto, cinema);
             _context.SaveChanges();
             return NoContent();
         }

@@ -1,9 +1,9 @@
+using System;
 using System.ComponentModel.DataAnnotations;
-using System.Text.Json.Serialization;
 
-namespace FilmesAPI.Models
+namespace FilmesAPI.Data.Dtos
 {
-    public class Endereco
+    public class ReadEnderecoDto
     {
         [Key]
         [Required]
@@ -14,7 +14,5 @@ namespace FilmesAPI.Models
         public string Bairro { get; set; }
         [Required(ErrorMessage = "O campo Numero é obrigatório!")]
         public int Numero { get; set; }
-        [JsonIgnore]
-        public virtual Cinema Cinema { get; set; }
     }
 }
