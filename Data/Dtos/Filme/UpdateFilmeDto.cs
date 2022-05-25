@@ -6,5 +6,6 @@ namespace FilmesAPI.Data.Dtos.Filme
         public string Diretor { get; set; }
         public string Genero { get; set; }
         public int Duracao { get; set; }
+        public int ClassificacaoEtaria { get; set; }
     }
 }
