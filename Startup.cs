@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using FilmesAPI.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -13,6 +12,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using FilmesAPI.Data;
+using FilmesAPI.Services;
 
 namespace FilmesAPI
 {
@@ -39,7 +40,8 @@ namespace FilmesAPI
                     )
 
             );
-
+            services.AddScoped<FilmeService, FilmeService>();
+            services.AddScoped<CinemaService, CinemaService>();
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
