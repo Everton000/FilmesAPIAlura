@@ -75,6 +75,8 @@ namespace FilmesAPI.Services
             }
 
             _mapper.Map(filmeDto, filme);
+            _context.SaveChanges();
+
             return Result.Ok();
         }
 
@@ -89,6 +91,7 @@ namespace FilmesAPI.Services
 
             _context.Remove(filme);
             _context.SaveChanges();
+            
             return Result.Ok();
         }
     } 
